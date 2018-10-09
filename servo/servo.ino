@@ -13,7 +13,6 @@ void loop() {
   for(int i =500 ; i< 750 ; i++ ){
       int angle=map(i, 0, 1023, 0, 180);
       Serial.println(angle);
-      delay(1000);
       myservo.write(angle);
     }
 }
