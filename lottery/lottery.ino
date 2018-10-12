@@ -2,8 +2,6 @@
 #include<stdio.h>
 #include<string.h>
 Servo myservo;
-const int pinMoter=6;
-const int pinMoter2=7;
 const int pinServo=9;
 const int pinRelay=8;
 int looptimes=0;
@@ -20,23 +18,26 @@ void loop() {
   String flag = Serial.readString();
   flag.trim();  
   if(flag=="start"){
-   looptimes=4; 
+   looptimes=3; 
     }else if(flag=="close"){
       looptimes=0;
-   }
+   }else if(flag == "ready"){
+      myservo.write(10);
+    }
   
   if(looptimes-- >0){
       Serial.println("it started");
       digitalWrite(pinRelay,LOW);
-      myservo.write(10);
-      delay(150);
+      myservo.write(95);
+      delay(100);
       digitalWrite(pinRelay,HIGH);
-      delay(1200);
+      delay(1000);
       digitalWrite(pinRelay,LOW);
   }
   if(looptimes == 0){
     Serial.println("close");
-    digitalWrite(pinRelay,LOW);
     myservo.write(150);
+    delay(1000);
+    digitalWrite(pinRelay,LOW);
   } 
 }
