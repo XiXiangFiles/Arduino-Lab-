@@ -2,7 +2,7 @@
 ### 環境設定 Johnny-five Setup
 > Linux
 * Nodejs 6.x LTS 、8.x LTS 或以上版本
-```shell {.line-numbers}
+```shell=
 ## Install Nodejs steps
 sudo apt-get updgate
 sudo apt-get dist-upgrade
@@ -19,7 +19,7 @@ sudo ./arduino
 * REPL 指的是可以利用「指令」的方式對Arduino 控制
     * 輸入 on() 13 pin將會進行高電位輸出
     * 輸入 off()13 pin將會進行低電位輸出
-````js{.line-numbers}
+````js=
 let five = require("johnny-five");
 let board = new five.Board();
 board.on("ready", function() {
@@ -40,7 +40,7 @@ board.on("ready", function() {
 > 線路圖如下
 > ![](https://i.imgur.com/wIeNsTi.png)
 
-````js {.line-numbers} 
+````js= 
 let five = require("johnny-five");
 let board = new five.Board();
 board.on("ready", function() {
@@ -59,7 +59,7 @@ board.on("ready", function() {
     * 第7行「sweep」方法指的是利用「to」進行鐘擺實作 
 > 線路圖如下
 > ![](https://i.imgur.com/86hgXRw.png)
-````js {.line-numbers}
+````js
 let five = require("johnny-five");
 let readline = require("readline");
 five.Board().on("ready", function() {
@@ -70,8 +70,8 @@ five.Board().on("ready", function() {
     let degree = 0;
     let flag=true;
     setInterval(function(){
-      if (degree == 180 && flag == true) { flag = false}';
-      if(degree == 0 && flag == false){flag = true};
+      if (degree == 180 && flag == true) { flag = false}
+      if(degree == 0 && flag == false){flag = true}
       flag ==true ? servo.to(degree++) :servo.to(degree--);
       console.log(degree);},1)}
   cmd.close=function(){process.exit()};
@@ -92,7 +92,7 @@ five.Board().on("ready", function() {
         * 搭配Relay 進行控制，接腳在常關上，當輸出高電位時可直接啟動
 > 線路圖如下
 ![Rottery image](https://i.imgur.com/s1jUrrv.png)
-````js {.line-numbers}
+````js=
 let five = require("johnny-five");
 five.Board().on("ready", function() {
   let servo = new five.Servo(9);
