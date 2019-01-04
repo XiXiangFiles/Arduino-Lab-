@@ -19,7 +19,7 @@ sudo ./arduino
 * REPL 指的是可以利用「指令」的方式對Arduino 控制
     * 輸入 on() 13 pin將會進行高電位輸出
     * 輸入 off()13 pin將會進行低電位輸出
-````js {.line-numbers}
+````js{.line-numbers}
 let five = require("johnny-five");
 let board = new five.Board();
 board.on("ready", function() {
