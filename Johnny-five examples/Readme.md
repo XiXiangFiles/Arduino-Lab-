@@ -71,7 +71,7 @@ five.Board().on("ready", function() {
     let degree = 0;
     let flag=true;
     setInterval(function(){
-      if (degree == 180 && flag == true) { flag = false}';
+      if (degree == 180 && flag == true) { flag = false};
       if(degree == 0 && flag == false){flag = true};
       flag ==true ? servo.to(degree++) :servo.to(degree--);
       console.log(degree);},1)}
