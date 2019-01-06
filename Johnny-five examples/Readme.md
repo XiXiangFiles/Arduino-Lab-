@@ -38,9 +38,10 @@ board.on("ready", function() {
 ![](https://i.imgur.com/1bAx4zJ.png)
 
 > 線路圖如下
-> ![](https://i.imgur.com/wIeNsTi.png)
+> ![](https://i.imgur.com/KSGkrdx.png)
 
-````js
+
+````js 
 let five = require("johnny-five");
 let board = new five.Board();
 board.on("ready", function() {
@@ -70,8 +71,8 @@ five.Board().on("ready", function() {
     let degree = 0;
     let flag=true;
     setInterval(function(){
-      if (degree == 180 && flag == true) { flag = false}
-      if(degree == 0 && flag == false){flag = true}
+      if (degree == 180 && flag == true) { flag = false}';
+      if(degree == 0 && flag == false){flag = true};
       flag ==true ? servo.to(degree++) :servo.to(degree--);
       console.log(degree);},1)}
   cmd.close=function(){process.exit()};
@@ -91,7 +92,8 @@ five.Board().on("ready", function() {
     * Motor
         * 搭配Relay 進行控制，接腳在常關上，當輸出高電位時可直接啟動
 > 線路圖如下
-![Rottery image](https://i.imgur.com/s1jUrrv.png)
+![](https://i.imgur.com/OtjzmP8.png)
+
 ````js
 let five = require("johnny-five");
 five.Board().on("ready", function() {
@@ -114,3 +116,4 @@ five.Board().on("ready", function() {
   this.repl.inject(cmd);
 });
 `````
+

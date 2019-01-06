@@ -1,0 +1,14 @@
+{
+  "name": "johnny-five-examples",
+  "version": "1.0.0",
+  "description": "> Linux * Nodejs 6.x LTS 、8.x LTS 或以上版本 ```shell= ## Install Nodejs steps sudo apt-get updgate sudo apt-get dist-upgrade sudo curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - sudo apt-get install -y nodejs ## install Arduino wget https://www.arduino.cc/download_handler.php tar -xvf arduino tar -xvf arduino-1.8.8-linux64.tar.xz arduino-1.8.8 cd arduino-1.8.8-linux64/arduino-1.8.8 sudo ./arduino ``` ### REPL 使用方法 * REPL 指的是可以利用「指令」的方式對Arduino 控制     * 輸入 on() 13 pin將會進行高電位輸出     * 輸入 off()13 pin將會進行低電位輸出 ````js let five = require(\"johnny-five\"); let board = new five.Board(); board.on(\"ready\", function() {   let power = new five.Led(13);   let device=this;   let cmd={};   cmd.on=function(){power.on(); return \"on\";};   cmd.off=function(){power.off(); return \"off\";};   this.repl.inject(cmd); }); ```` ### Relay 使用方法 * Realy 有「常開」、「常關」等兩個模式，可透過輸入高低電位進行控制，原理如下     * on() --> 指的是當8 pin 高電位時，常關將通電     * off()---> 指的是當8 pin 低電位時，常開將通電 ![](https://i.imgur.com/1bAx4zJ.png)",
+  "main": "REPL.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "^1.0.0"
+  }
+}
